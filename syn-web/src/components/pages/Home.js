@@ -22,9 +22,6 @@ export class Home extends Component {
             <div className={this.state.scroll ? "" : "no-scroll"}>
                 <Header scroll={this.state.scroll}/>
                 <Hero toggleSroll={this.toggleScroll.bind(this)} />
-                <div className="Other">
-                    <Services/>
-                </div>
             </div>
         )
     }

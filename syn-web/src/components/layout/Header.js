@@ -51,17 +51,17 @@ export class Header extends Component {
                         <div class="logo">
                             <a><img src={Logo}/></a>
                         </div>
-                        <ul>
+                        {/* <ul>
                             <li><Link to="/">About Us</Link></li>
                             <li><Link to="/Careers">Careers</Link></li>
                             <li><Link to="/Careers">Contact</Link></li>
                         </ul>
                         
-                        <Link to="/" className="contact-btn">Customer Portal</Link>
+                        <Link to="/" className="contact-btn">Customer Portal</Link> */}
 
-                        {/* <a id="h-menu-btn" className={this.state.HambugerToggle ? "x-btn clicked" : "x-btn"} onClick={ () => this.setState({HambugerToggle:  !this.state.HambugerToggle}) }>
+                        <a id="h-menu-btn" className={this.state.HambugerToggle ? "x-btn clicked" : "x-btn"} onClick={ () => this.setState({HambugerToggle:  !this.state.HambugerToggle}) }>
                             <div class="h-menu"></div>
-                        </a> */}     
+                        </a>     
                     </nav>   <Progress  scroll={ this.state.scrollPostion  +  '%' }  />
                 </header>                
                 
