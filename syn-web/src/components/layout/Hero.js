@@ -2,17 +2,11 @@ import React, { Component, useState } from 'react';
 import WAVES from 'vanta/dist/vanta.waves.min';
 import { Link } from 'react-router-dom';
 
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-
 import SwiperCore, { Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
-import { EffectCoverflow, Pagination } from 'swiper';
+import { Pagination } from 'swiper';
 
-import CloudImg from '../images/server.png';
-import LaptopImg from '../images/LaptopImg.jpg';
-import Clouds from '../images/Clouds.jpg';
 import WhiteCloudComp from '../images/WhiteCloudComp.png';
 
 SwiperCore.use([Pagination, Navigation]);
@@ -35,7 +29,7 @@ export class Hero extends Component {
             scaleMobile: 1.00,
             shininess: 28.00,
             waveHeight: 8.00,
-            waveSpeed: 0.25,
+            waveSpeed: 2,
             color: 0x20202
         })
 
@@ -158,7 +152,7 @@ export class Hero extends Component {
     // }
 
     cardClick(){
-        this.setState({CardExpanded: !this.state.CardExpanded})
+        this.props.toggleCard(true)
     }
 
 
@@ -203,17 +197,7 @@ export class Hero extends Component {
                                 <h1>Card Title</h1>
                                 <div className={"vm"}>ARROW</div>
                             </div>                           
-                        </div>
-                        <div onClick = {(e) => this.cardClick(e)} className={this.state.CardExpanded ? "infocard expanded" : "infocard"}>
-                            <div>
-                                <h1>YOUR CLOUD STRATERGY</h1>
-                                <p>
-                                    Excepteur nisi irure commodo et eiusmod nulla. Amet et id consectetur deserunt. Laboris sint laborum pariatur cillum. Nulla culpa Lorem cupidatat ullamco. Proident pariatur aute consectetur est eu in duis culpa laborum ullamco laborum.
-
-                                    Pariatur voluptate qui minim ipsum minim labore enim aute aute. Ad aliquip et cillum Lorem quis velit elit est pariatur. Ipsum ut culpa aute culpa reprehenderit est cillum dolore culpa qui consequat ad mollit dolore. Sint minim voluptate exercitation in pariatur in aliqua et officia et dolore commodo.
-                                </p>
-                            </div>
-                        </div>
+                        </div>                        
                     </SwiperSlide>
                     <SwiperSlide>
                         <h1>EXTEND AND ENABLE YOUR IT TEAM</h1>
