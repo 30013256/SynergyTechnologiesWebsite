@@ -10,11 +10,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import { Pagination } from 'swiper';
 
-import WhiteCloudComp from '../images/WhiteCloudComp.png';
-import UpArrow from '../images/up-arrow-white.png';
+import Logo from "../images/synlogo.png";
 import Clouds from '../images/Clouds.jpg';
 import NetSec from '../images/net-security.jpg';
+import TechMap from '../images/techroadmap.jpg';
 
+import { Squash as Hamburger } from 'hamburger-react'
 
 SwiperCore.use([Pagination, Navigation]);
 
@@ -36,10 +37,14 @@ export class Home extends Component {
             scaleMobile: 1.00,
             shininess: 28.00,
             waveHeight: 8.00,
-            waveSpeed: 1,
-            color: 0x20202
+            waveSpeed: .5,
+            color: 0x0,
         })
+        
+    }
 
+    getStyle = (e) => {
+        const h1Height = e.getBoundingClientRect().width
     }
 
     componentWillUnmount() {
@@ -48,21 +53,21 @@ export class Home extends Component {
     
 
     state = {
-        scroll: false,
-        CardExpanded: false
-    }
-
-    toggleScroll = (bool) => {
-        this.setState({scroll: bool})
+        CardExpanded: false,
+        isOpen: false
     }
 
     cardClick(bool){
         this.setState({CardExpanded: bool})
     }
 
+    toggleHamburger(){
+        this.setState({isOpen: !this.state.isOpen})
+    }
+
     render() {
         return (
-            <div className={this.state.scroll ? "" : "no-scroll"}>
+            <div className={"no-scroll"}>
                 <div onClick = {(e) => this.cardClick(false)} className={this.state.CardExpanded ? "infocard expanded" : "infocard"}>
                     <div>
                         <h1>YOUR CLOUD STRATERGY</h1>
@@ -73,80 +78,113 @@ export class Home extends Component {
                         </p>
                     </div>
                 </div>
-                <Header scroll={this.state.scroll}/>
+                <header id={"headerId"} className={this.props.scroll ? "bg" : ""}>
+                    <nav>
+                        <div class="logo">
+                            <a><img src={Logo}/></a>
+                        </div>   
+                        <Hamburger 
+                            toggled={this.state.isOpen} 
+                            toggle = {(e) => this.toggleHamburger()}   
+                            size={40}
+                            color="#fff"
+                        />
+                    </nav>   
+                </header>   
+                <div className={this.state.isOpen ? "menu menu-open" : "menu"}>
+                    <ul>
+                        <li><Link>About Us</Link></li>
+                        <li><Link>Contact Us</Link></li>
+                        <li><Link>Comunity</Link></li>
+                        <li><Link>Services</Link></li>
+                        <li><p>synergyemail@synergy.com | 022 011 211 | 25 Somthing St</p></li>
+                    </ul>
+                </div>
                 <div id="Hero" ref={this.vantaRef} >               
-                <Swiper className="mySwiper" allowTouchMove={false} pagination={true} pagination={{"clickable": true}} navigation={true}>
-                    <SwiperSlide>
-                        <h1>EXTEND AND ENABLE YOUR IT TEAM</h1>
-                        <p>Already have an IT Team in place, but want to leverage our capacity and experience? We’ll work along side your organisation to reach your objectives faster with our flexible approach.</p>
-                        <div>
-                            <Link className={"btn-contact"}>Contact</Link>
-                            <Link className={"btn-customerportal"}>Customer Portal</Link>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <h1>SERVICES</h1>
-                        <div className={"services"}>
-                            <div className={"service-card-v2"} onClick = {(e) => this.cardClick(true)}>
-                                <img src={Clouds} />
-                                <div>
-                                    <h1>Your Cloud Stratergy</h1>
-                                    <p>
-                                        Already have an IT Team in place, but want to leverage our capacity and experience?
-                                    </p>
-                                    <a className={"view-btn"}>VIEW MORE</a>
-                                </div>   
+                    <Swiper className="mySwiper" allowTouchMove={false} pagination={true} pagination={{"clickable": true}} navigation={true}>
+                        <SwiperSlide>
+                            <h1>EXTEND AND ENABLE YOUR IT TEAM</h1>
+                            <p>Already have an IT Team in place, but want to leverage our capacity and experience? We’ll work along side your organisation to reach your objectives faster with our flexible approach.</p>
+                            <div>
+                                <Link className={"btn-contact"}>Contact</Link>
+                                <Link className={"btn-customerportal"}>Customer Portal</Link>
                             </div>
-                            <div className={"service-card-v2"} onClick = {(e) => this.cardClick(true)}>
-                                <img src={NetSec} />
-                                <div>
-                                    <h1>Your Cloud Stratergy</h1>
-                                    <p>
-                                        Already have an IT Team in place, but want to leverage our capacity and experience?
-                                    </p>
-                                    <a className={"view-btn"}>VIEW MORE</a>
-                                </div>   
-                            </div>
-                            <div className={"service-card"} onClick = {(e) => this.cardClick(true)}>
-                                <h1>Your Cloud Stratergy</h1>
-                                <img src={WhiteCloudComp} />
-                                <div className={"vm"}>
-                                    <img src={UpArrow}/>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <h1>SERVICES</h1>
+                            <div className={"services"}>
+                                <div className={"service-card-v2"} onClick = {(e) => this.cardClick(true)}>
+                                    <img src={Clouds} />
+                                    <div id={"sc-div-id-2"}>
+                                        <h1 id={"sc-header-id-1"}>Your Cloud Stratergy</h1>
+                                        <p>
+                                            Already have an IT Team in place, but want to leverage our capacity and experience?
+                                        </p>
+                                        <a className={"view-btn"}>VIEW MORE</a>
+                                    </div>   
                                 </div>
-                            </div>
-                            <div className={"service-card"} onClick = {(e) => this.cardClick(true)}>
-                                <h1>Your Cloud Stratergy</h1>
-                                <img src={WhiteCloudComp} />
-                                <div className={"vm"}>
-                                    <img src={UpArrow}/>
+                                <div className={"service-card-v2"} onClick = {(e) => this.cardClick(true)}>
+                                    <img src={NetSec} />
+                                    <div id={"sc-div-id-2"}>
+                                        <h1 id={"sc-header-id-1"}>Technology To Enable Your Organisation</h1>
+                                        <p>
+                                            Already have an IT Team in place, but want to leverage our capacity and experience?
+                                        </p>
+                                        <a className={"view-btn"}>VIEW MORE</a>
+                                    </div>   
                                 </div>
-                            </div>
-                            <div className={"service-card"} onClick = {(e) => this.cardClick(true)}>
-                                <h1>Your Cloud Stratergy</h1>
-                                <img src={WhiteCloudComp} />
-                                <div className={"vm"}>
-                                    <img src={UpArrow}/>
+                                <div className={"service-card-v2"} onClick = {(e) => this.cardClick(true)}>
+                                    <img src={TechMap} />
+                                    <div>
+                                        <h1>Your Cloud Stratergy</h1>
+                                        <p>
+                                            Already have an IT Team in place, but want to leverage our capacity and experience?
+                                        </p>
+                                        <a className={"view-btn"}>VIEW MORE</a>
+                                    </div>   
                                 </div>
-                            </div>
-                            <div className={"service-card"} onClick = {(e) => this.cardClick(true)}>
-                                <h1>Your Cloud Stratergy</h1>
-                                <img src={WhiteCloudComp} />
-                                <div className={"vm"}>
-                                    <img src={UpArrow}/>
+                                <div className={"service-card-v2"} onClick = {(e) => this.cardClick(true)}>
+                                    <img src={NetSec} />
+                                    <div>
+                                        <h1>Your Cloud Stratergy</h1>
+                                        <p>
+                                            Already have an IT Team in place, but want to leverage our capacity and experience?
+                                        </p>
+                                        <a className={"view-btn"}>VIEW MORE</a>
+                                    </div>   
                                 </div>
+                                <div className={"service-card-v2"} onClick = {(e) => this.cardClick(true)}>
+                                    <img src={Clouds} />
+                                    <div>
+                                        <h1>Your Cloud Stratergy</h1>
+                                        <p>
+                                            Already have an IT Team in place, but want to leverage our capacity and experience?
+                                        </p>
+                                        <a className={"view-btn"}>VIEW MORE</a>
+                                    </div>   
+                                </div>
+                                <div className={"service-card-v2"} onClick = {(e) => this.cardClick(true)}>
+                                    <img src={NetSec} />
+                                    <div>
+                                        <h1>Your Cloud Stratergy</h1>
+                                        <p>
+                                            Already have an IT Team in place, but want to leverage our capacity and experience?
+                                        </p>
+                                        <a className={"view-btn"}>VIEW MORE</a>
+                                    </div>   
+                                </div>                        
                             </div>                        
-                        </div>                        
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <h1>EXTEND AND ENABLE YOUR IT TEAM</h1>
-                        <p>Commodo nostrud laborum esse cupidatat excepteur quis sit Lorem do veniam amet magna. Ut do duis culpa excepteur ipsum deserunt aliquip. Proident minim deserunt consequat dolor.</p>
-                        <div>
-                            <Link>Contact</Link>
-                            <Link>Customer Portal</Link>
-                        </div>
-                    </SwiperSlide>
-                </Swiper>         
-            </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <h1>EXTEND AND ENABLE YOUR IT TEAM</h1>
+                            <p>Commodo nostrud laborum esse cupidatat excepteur quis sit Lorem do veniam amet magna. Ut do duis culpa excepteur ipsum deserunt aliquip. Proident minim deserunt consequat dolor.</p>
+                            <div>
+                                <Link>Contact</Link>
+                                <Link>Customer Portal</Link>
+                            </div>
+                        </SwiperSlide>
+                    </Swiper>         
+                </div>
             </div>
         )
     }

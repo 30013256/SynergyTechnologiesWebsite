@@ -1,23 +1,8 @@
-/* Scroll bar */
-.os-scrollbar-handle{
-  background: rgba(117, 117, 117, 0.753) !important; 
-}
-
-::-webkit-scrollbar{
-  width: 6px;
-}
-
-::-webkit-scrollbar-track{
-  background-color: rgb(0, 0, 0);
-}
-
-::-webkit-scrollbar-thumb{
-  background-color: rgb(168, 168, 168);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover{
-  background-color: #00AEEF;
+:root {
+  --black: black;
+  --white: white;
+  --light-grey: rgb(190, 190, 190);
+  --dark-grey: rgb(7, 7, 7);
 }
 
 /* Page */
@@ -28,7 +13,7 @@ html, body{
 }
 
 #page{
-  background-color: black;
+  background-color: var(--black);
   position: relative;
 }
 
@@ -65,6 +50,9 @@ html, body{
 }
 
 
+
+
+/* Nav */
 header{  
   padding: 1.5rem;
   padding-left: 2.5rem;
@@ -80,15 +68,6 @@ header{
 }
 
 
-.bg{
-  padding: .8rem;
-  padding-top: calc(.8rem + 3px);
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
-  background-color: rgba(7, 6, 6, 0.863);
-  backdrop-filter: blur(10px);
-}
-
 nav{
   display: flex;
   align-items: center;
@@ -100,7 +79,7 @@ header nav .logo{
 }
 
 header nav .logo img{
-  max-height: 4rem;
+  max-height: 3.5rem;
 }
 
 header nav ul{
@@ -117,7 +96,7 @@ header nav ul li {
 
 header nav ul li a{
   position: relative;
-  color: white;
+  color: var(--white);
   text-decoration: none;
 }
 
@@ -126,7 +105,7 @@ header nav ul li a::after{
   position: absolute;
   left: 0;
   bottom: -3px;
-  background-color: white;
+  background-color: var(--white);
   width: 100%;
   height: 1px;
  
@@ -136,105 +115,94 @@ header nav ul li a::after{
 }
 
 header nav ul li a:hover::after, header nav ul li a:hover{
-  color: white;
+  color: var(--white);
 
   transform: scaleX(100%);
   transform-origin: left;
 }
 
+/* Hamburger */
 
-
-/*----Hamburger button------*/
-
-.x-btn{
-  width: 25px;
-  height: 25px;
-  display: flex;
-  align-items: center;  
+.hamburger-react div{
+  background: linear-gradient(to top, rgba(0, 0, 0, 0) 29%, var(--white) 30%, var(--white) 70%, rgba(0, 0, 0, 0) 71%) !important;
 }
 
-.x-btn:hover > .h-menu {
-  color: hsl(0 0% 60%);
-}
+/* Menu */
 
-.h-menu {
-  width: 25px;
-  height: 3px;
-  background-color: currentColor;
-  position: relative;
-  color: white;
-
-  transition: all linear 200ms;
-}
-
-.h-menu::before {
-  content: '';
+.menu{
   position: absolute;
-  width: 25px;
-  height: 3px;
-  background-color: currentColor;
-  top: -11px;
-
-  transform-origin: bottom left;
-  transition: width ease-in 200ms;
-  transition: transform ease-out 200ms;
-}
-
-.h-menu::after {
-  content: '';
-  position: absolute;
-  width: 25px;
-  height: 3px;
-  background-color: currentColor;
-  bottom: -11px;
-
-  transform-origin: top left;
-  transition: width ease-in 200ms;
-  transition: transform ease-out 200ms;
-}
-
-.clicked > .h-menu {    
-  background-color: rgba(255, 255, 255, 0);
-}
-
-.clicked > .h-menu::before{
-  width: 30px;
-  transform: rotate(45deg);
-}
-
-.clicked > .h-menu::after {
-  width: 30px;
-  transform: rotate(-45deg);
-}
-
-/* Services */
-.Other{
-  position: relative;
+  inset: 0;
   width: 100%;
-  background-color: #ddd6cc;
-  display: grid;
-  grid-template-rows: auto auto;
+  height: 100%;
+
+  background-color: var(--dark-grey);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  opacity: 0;
+  z-index: -999;
+  transition: opacity ease-out 200ms;
 }
 
-.section-header{
-  margin-top: 5rem;
-  margin-bottom: 5rem;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  background-color: black;
-  color: white;
-  padding: 1rem 2.5rem 1rem 2.5rem;
-  font-size: 2.5rem;
+.menu ul{
+  list-style: none;
+  padding: 0;
+}
+
+.menu ul li{
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.menu ul li a{
+  position: relative;
+  color: var(--light-grey);
+  font-size: 4rem;
   font-weight: 100;
-  letter-spacing: .3em;
+  padding: 1.5rem;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition: all ease-out 300ms;
+}
+
+.menu ul li a::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: calc(100% - 1rem);
+  background-color: currentColor;
+  width: 100%;
+  height: 2px;
+
+  transition: all ease-out 300ms;
+  transform-origin: center;
+  transform: scaleX(0);
+}
+
+.menu ul li a:hover, .menu ul li a:hover::after{
+  color: var(--white);
+  transform: scaleX(1);
+}
+
+.menu ul li p{
+  color: var(--light-grey);
+  font-size: 1rem;
+  font-weight: 300;
+  text-decoration: none;
   text-transform: uppercase;
 }
 
-.content-eg{
-  font-size: 2rem;
-  padding: 2rem;
+
+
+.menu-open{
+  z-index: 10;
+  opacity: 1;
 }
+
+
 
 /* Swiper & Slides*/
 .swiper-container{
@@ -247,25 +215,25 @@ swiper {
   height: 100%;
 }
 
-.swiper-slide {
-  background-color: rgba(0, 0, 0, 0); 
+.swiper-slide { 
   flex-direction: column;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
 }
+
 .swiper-slide h1 {
-  color: white;
+  color: var(--white);
   max-width: 50rem;
   text-align: center;
   margin: 2rem;
-  font-size: 4rem;
-  font-weight: 500;
+  font-size: 4.5rem;
+  font-weight: 100;
 }
 
 .swiper-slide p {
-  color: white;
+  color: var(--white);
   max-width: 50rem;
   margin: 2rem;
   text-align: center;
@@ -284,132 +252,71 @@ swiper {
 }
 
 .swiper-pagination-bullet{
-  background-color: white !important;
-  width: 1.5rem !important;
-  height: 1.5rem !important;
-  margin-left: 2rem !important;
-  margin-right: 2rem !important;
+  background-color: var(--white) !important;
+  width: .8rem !important;
+  height: .8rem !important;
+  margin-left: 1.5rem !important;
+  margin-right: 1.5rem !important;
+  position: relative;
 }
 
 .swiper-button-next, .swiper-button-prev{
-  color: white !important;
+  color: var(--white) !important;
 }
 
-.btn-contact{
+.btn-contact, .btn-customerportal{
+  position: relative;
+
   text-decoration: none;
-  font-size: 2.5rem;
-  color: white;
-  font-weight: 100;
-  border: 1px solid white;
-  border-radius: 2px;
-  background-color: rgba(255, 255, 255, 0);
+  font-size: 2rem;
+  color: var(--black);
+  font-weight: 300;
+
+  border: 1px solid var(--white);
+  border-radius: 1px;
+  background-color: var(--white);
+
   padding: .5rem;
   padding-left: 3rem;
   padding-right: 3rem;
   margin: .5rem;
-  transform-origin: center;
-  transition: all ease-in-out 300ms;
-  display: inline-block;
-}
 
-.btn-contact:hover{
-  transform: scale(1.03);
+  transform-origin: center;
+  transition: all ease-in-out 200ms;
 }
 
 .btn-customerportal{
-  text-decoration: none;
-  font-size: 2.5rem;
-  color: black;
-  font-weight: 100;
-  border: 1px solid white;
-  border-radius: 2px;
-  background-color: rgb(255, 255, 255);
-  padding: .5rem;
-  padding-left: 3rem;
-  padding-right: 3rem;
-  margin: .5rem;
-  transition: all ease-in-out 300ms;
-  display: inline-block;
+  color: var(--white);
+  background-color: rgba(255, 255, 255, 0);
+  border: 1px solid var(--white);
+  font-weight: 300;
 }
 
-.btn-customerportal:hover{
-  transform: scale(1.03);
+.btn-contact::after, .btn-customerportal::after{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+
+  background-color: var(--white);
+  mix-blend-mode: difference;
+  
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: all 350ms ease-out;
 }
 
+.btn-contact:hover, .btn-customerportal:hover{
+  box-shadow: var(--white) 0 0 25px -10px;
+}
+
+/* Services */
 .services{
   display: flex;
   position: relative;
   gap: 2rem;
-}
-
-.service-card{
-  width: 12vw;
-  height: 25rem;
-  background-color: rgba(204, 204, 204, 0.226); 
-  backdrop-filter: blur(6px);
-  display: flex;
-  flex-direction: column;
-  color: white;
-  overflow: hidden;
-
-  margin: 0 !important;
-  border-radius: 2px;
-  transition: all ease-out 300ms;
-}
-
-.service-card h1{
-  text-align: center;
-  font-size: 1.3rem;
-  font-weight: 500;
-  margin: .5rem;
-  margin-top: 1rem;
-  margin-bottom: 0;
-}
-
-.service-card img{
-  padding: 3rem;
-  padding-top: 1rem;
-  margin-bottom: auto;
-}
-
-.service-card .vm{
-  margin-top: auto;
-  margin-bottom: .5rem;
-  text-align: center;
-  position: relative;
-
-  transition: all ease-in-out 300ms;
-}
-
-.service-card .vm img{
-  width: 3rem;
-  padding: 0;
-  transition: all ease-out 300ms;
-}
-
-.service-card .vm::after{
-  content: "Veiw More";
-  text-align: center;
-  position: absolute;
-  width: 100%;
-  top: 4rem;
-  left: 0;
-  font-size: .8rem;
- 
-  transition: transform ease-out 300ms;
-}
-
-.service-card:hover{
-  transform: scale(1.1);
-}
-
-.service-card:hover > .vm img{
-  transform: translateY(-2rem)
-}
-.service-card:hover > .vm::after{
-  transition-delay: 300ms;
-  transition-property: transform;
-  transform: translateY(-2rem)
 }
 
 .service-card-v2{
@@ -417,13 +324,13 @@ swiper {
   height: 25rem;
   display: flex;
   flex-direction: column;
-  color: white;
+  color: var(--white);
   overflow: hidden;
   cursor: pointer;
   position: relative;
   margin: 0 !important;
 
-  box-shadow: 0 0 2rem .4rem rgb(0, 0, 0);
+  box-shadow: 0 0 2rem .4rem var(--black);
   
   border-radius: 2px;
   transition: all ease-out 300ms;
@@ -446,7 +353,7 @@ swiper {
   height: 100%;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(to top, rgba(0, 0, 0, .7) 20%, rgba(0, 0, 0, .5) 60%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(to top, rgba(0, 0, 0, .7) 20%, rgba(0, 0, 0, .5) 70%, rgba(0, 0, 0, 0) 100%);
   transform: translateY(calc(100% - 6rem));
 
   transition: all ease-out 300ms;
@@ -455,22 +362,26 @@ swiper {
 .service-card-v2 h1{
   text-align: left;
   font-size: 1.3rem;
-  font-weight: 500;
+  font-weight: 600;
   margin: 1rem;
   margin-left: 1.5rem;
   margin-top: 2rem;
   position: relative;
+  text-transform: uppercase;
+  text-shadow: rgb(0, 0, 0) 0 0 10px;
 }
 
 .service-card-v2 p{
+  margin: 1.5rem;
+
   font-size: 1rem;
   text-align: left;
   margin-bottom: auto;
 }
 
 .service-card-v2 a{
-  font-size: 1rem;
   margin: 1.5rem;
+  font-size: 1rem;
   margin-top: auto;
   display: inline-block;
   background: rgba(0, 0, 0, 0);
@@ -485,7 +396,7 @@ swiper {
   width: 100%;
   left: 0;
   height: 1px;
-  background-color: white;
+  background-color: var(--white);
   transform: scaleX(0);
   transform-origin: left;
   transition: all ease-out 300ms;
@@ -523,7 +434,7 @@ swiper {
   justify-content: center;
   align-items: center;
 
-  transition: all ease-out 300ms;
+  transition: all ease-out 500ms;
   z-index: -20;
 }
 
@@ -544,8 +455,8 @@ swiper {
 }
 
 .infocard div h1{
-  color: white;
-  background-color: black;
+  color: var(--white);
+  background-color: var(--black);
   font-weight: 100;
   font-size: 2rem;
   padding: 1.2rem;
