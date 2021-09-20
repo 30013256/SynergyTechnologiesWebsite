@@ -3,6 +3,7 @@
   --white: white;
   --light-grey: rgb(190, 190, 190);
   --dark-grey: rgb(7, 7, 7);
+  --syn-blue: #00AEEF;
 }
 
 /* Page */
@@ -289,7 +290,7 @@ swiper {
   color: var(--white);
   background-color: rgba(255, 255, 255, 0);
   border: 1px solid var(--white);
-  font-weight: 300;
+  font-weight: 100;
 }
 
 .btn-contact::after, .btn-customerportal::after{
@@ -332,13 +333,14 @@ swiper {
 
   box-shadow: 0 0 2rem .4rem var(--black);
   
-  border-radius: 2px;
+  border-radius: 1px;
   transition: all ease-out 300ms;
 }
 
 .service-card-v2 img{
   position: absolute;
   top: 0;
+  left: -50%;
   height: 100%;
   z-index: -1;
   filter: saturate(1.2);
@@ -353,14 +355,17 @@ swiper {
   height: 100%;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(to top, rgba(0, 0, 0, .7) 20%, rgba(0, 0, 0, .5) 70%, rgba(0, 0, 0, 0) 100%);
-  transform: translateY(calc(100% - 6rem));
+  background: linear-gradient(to top, rgba(0, 0, 0, .8) 20%, rgba(0, 0, 0, .6) 70%, rgba(0, 0, 0, 0) 100%);
+  transform: translateY(calc(100% - 8rem));
 
   transition: all ease-out 300ms;
 }
 
 .service-card-v2 h1{
   text-align: left;
+  display: flex;
+  align-items: flex-end;
+  height: 5rem;
   font-size: 1.3rem;
   font-weight: 600;
   margin: 1rem;
@@ -368,7 +373,25 @@ swiper {
   margin-top: 2rem;
   position: relative;
   text-transform: uppercase;
-  text-shadow: rgb(0, 0, 0) 0 0 10px;
+}
+
+.service-card-v2 h1::after{
+  content: "";
+  background-color: var(--white);
+  position: absolute;
+  left: -1.5rem;
+  top: calc(100% + .5rem);
+  width: 100%;
+  height: 1px;
+
+  transform-origin: left;
+  transition: all ease-out 300ms;
+
+  transform: scaleY(0);
+}
+
+.service-card-v2:hover h1::after{
+  transform: scaleY(1);
 }
 
 .service-card-v2 p{
@@ -442,12 +465,16 @@ swiper {
   position: relative;
   width: 80vw;
   height: 80vh;
+  max-width: 90rem;
+  max-height: 50rem;
+
   background-color: #ddd6cc !important;
   display: flex;
   flex-direction: column;
   margin: 0;
   align-items: center;
   border-radius: 2px;
+  opacity: 0;
 
   transform: scale(0);
   transform-origin: center;
@@ -485,4 +512,5 @@ swiper {
 
 .expanded div{
   transform: scale(1);
+  opacity: 1;
 }
