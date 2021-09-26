@@ -5,7 +5,7 @@
   --dark-grey: rgb(7, 7, 7);
   --dark-grey-text: rgb(32, 32, 32);
   --syn-blue: #00AEEF;
-  --beige: #ddd6cc;
+  --beige: #cfccc7;
 }
 
 /* Page */
@@ -117,7 +117,8 @@ header nav ul li a::after{
   transition: transform ease-in-out 280ms;
 }
 
-header nav ul li a:hover::after, header nav ul li a:hover{
+header nav ul li a:hover::after, 
+header nav ul li a:hover{
   color: var(--white);
 
   transform: scaleX(100%);
@@ -316,7 +317,7 @@ input{
   outline: none;
   border: none;
   font-family: "Roboto";
-  font-weight: 100;
+  font-weight: 300;
   font-size: 1.3rem;
   letter-spacing: .1rem;
   box-sizing: border-box;
@@ -332,7 +333,7 @@ select {
   background-color: transparent;
   outline: none;
   font-size: 1.3rem;
-  font-weight: 100;
+  font-weight: 300;
   font-family: "Roboto";
   padding: .2rem;
   border: 1px solid rgba(0, 0, 0, 0);
@@ -352,7 +353,7 @@ textarea {
   height: 40rem;
   width: 100%;
   font-size: 1.3rem;
-  font-weight: 3100;
+  font-weight: 300;
   font-family: "Roboto";
   outline: none;
   width: 100%;
@@ -411,30 +412,36 @@ swiper {
   position: relative;
 }
 
+.container{
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  gap: 5vh;
+}
+
 .swiper-slide h1 {
   color: var(--white);
   max-width: 50rem;
   text-align: center;
-  margin: 2rem;
-  font-size: 4.5rem;
+  margin: 1rem;
+  font-size: 5rem;
   font-weight: 100;
   text-transform: uppercase;
 }
 
 .swiper-slide p {
-  color: var(--white);
-  max-width: 50rem;
-  margin: 2rem;
+  color: var(--light-grey);
+  max-width: 35rem;
+  margin: 1rem;
   text-align: center;
-  font-weight: 100;
+  font-weight: 300;
   font-size: 1.3rem;
   line-height: 160%;
 }
 
-.swiper-slide div{  
-  margin: 2rem;
-  margin-top: 3rem;
-}
+
 
 .swiper-pagination-bullets{
   margin-bottom: 1rem;
@@ -511,6 +518,7 @@ swiper {
 .service-card-v2{
   width: 12vw;
   height: 25rem;
+  max-width: 20rem;
   display: flex;
   flex-direction: column;
   color: var(--white);
@@ -686,7 +694,7 @@ swiper {
 
 .infocard div p{
   color: var(--dark-grey-text);
-  font-weight: 100;
+  font-weight: 300;
   font-size: 1.7rem;
   margin: 3rem;
   width: 100%;

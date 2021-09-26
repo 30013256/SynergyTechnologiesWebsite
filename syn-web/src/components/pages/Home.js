@@ -29,6 +29,7 @@ export class Home extends Component {
     constructor() {
         super()
         this.vantaRef = React.createRef()
+        this.hamRef = React.createRef()
     }
 
     componentDidMount() {
@@ -41,12 +42,11 @@ export class Home extends Component {
             minWidth: 200.00,
             scale: 1.00,
             scaleMobile: 1.00,
-            shininess: 28.00,
-            waveHeight: 8.00,
-            waveSpeed: .8,
-            color: 0x0,
-        })
-        
+            shininess: 24.00,
+            waveHeight: 5.00,
+            waveSpeed: .7,
+            color: 0x50505,
+        })       
     }
 
     componentWillUnmount() {
@@ -59,6 +59,7 @@ export class Home extends Component {
     }
 
     toggleHamburger(){
+        console.log("toggle")
         this.setState({isOpen: !this.state.isOpen})
     }
 
@@ -66,8 +67,8 @@ export class Home extends Component {
         this.setState({FormOpen: !this.state.FormOpen})
     }
 
-    navigate(){
-
+    formSend(e){
+        e.preventDefault()
     }
 
     state = {
@@ -109,7 +110,7 @@ export class Home extends Component {
                 </div>
                 <div className={this.state.FormOpen ? "contact-form form-open" : "contact-form"}>
                     <div onClick = {() => this.toggleContact()} className="click-mask"></div>
-                    <form>
+                    <form onSubmit={this.formSend}>
                         <h1>Contact Us</h1>
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="2rem" fill="var(--dark-grey)" class="bi bi-person" viewBox="0 0 16 16">
@@ -158,8 +159,8 @@ export class Home extends Component {
                             <a><img src={Logo}/></a>
                         </div>   
                         <Hamburger 
-                            toggled={this.state.isOpen} 
-                            toggle = {(e) => this.toggleHamburger()}   
+                            onToggle={() => this.toggleHamburger()}
+                            toggled={this.state.isOpen}
                             size={40}
                             color="#fff"
                         />
@@ -167,116 +168,132 @@ export class Home extends Component {
                 </header>   
                 <div className={this.state.isOpen ? "menu menu-open" : "menu"}>
                     <ul>
-                        <li><Link to="">About Us</Link></li>
-                        <li><Link to="" >Contact</Link></li>
-                        <li><Link to="" >Services</Link></li>
-                        <li><Link to="" >Careers</Link></li>
+                        <li><a href="/#home" onClick = {() => this.toggleHamburger()}>Home</a></li>
+                        <li><a href="/#services" onClick = {() => this.toggleHamburger()}>Services</a></li>
+                        <li><a href="/#aboutus" onClick = {() => this.toggleHamburger()}>About Us</a></li>
+                        <li><a href="/#careers" onClick = {() => this.toggleHamburger()}>Careers</a></li>
+                        <li>
+                            <a href="#" 
+                                onClick = {() => {
+                                    this.toggleHamburger() 
+                                    this.toggleContact()
+                                }}
+                            >
+                                Contact
+                            </a>
+                        </li>
                         <li><p>synergyemail@synergy.com | 022 011 211 | 25 Somthing St</p></li>
                     </ul>
                 </div>
                 <div id="Hero" ref={this.vantaRef} >               
-                    <Swiper className="mySwiper" hashNavigation={{"watchState": true}} mousewheel={true} allowTouchMove={false} pagination={true} pagination={{"clickable": true}} navigation={true}>
+                    <Swiper lazy={true} hashNavigation={{"watchState": true}} mousewheel={true} allowTouchMove={false} pagination={true} pagination={{"clickable": true}} navigation={true}>
                         <SwiperSlide data-hash="home">
-                            <h1>EXTEND AND ENABLE YOUR IT TEAM</h1>
-                            <p>Already have an IT Team in place, but want to leverage our capacity and experience? We’ll work along side your organisation to reach your objectives faster with our flexible approach.</p>
-                            <div>
-                                <Link to="" onClick = {(e) => this.toggleContact()} className={"btn-contact"}>Contact</Link>
-                                <Link to="" className={"btn-customerportal"}>Customer Portal</Link>
+                            <div className={"container"}>
+                                <h1>EXTEND AND ENABLE YOUR IT TEAM</h1>
+                                <p>Already have an IT Team in place, but want to leverage our capacity and experience? We’ll work along side your organisation to reach your objectives faster with our flexible approach.</p>
+                                <div>
+                                    <a href="#" onClick = {(e) => this.toggleContact()} className={"btn-contact"}>Contact</a>
+                                    <a href="#" className={"btn-customerportal"}>Customer Portal</a>
+                                </div>
                             </div>
                         </SwiperSlide>
                         <SwiperSlide data-hash="services">
-                            <h1>SERVICES</h1>                           
-                            <div className={"services"}>
-                                <div className={"service-card-v2"} onClick = {(e) => this.cardClick(0)}>
-                                    <img src={Clouds} />
-                                    <div id={"sc-div-id-2"}>
-                                        <h1 id={"sc-header-id-1"}>Your Cloud Strategy</h1>
-                                        <p>
-                                            Already have an IT Team in place, but want to leverage our capacity and experience?
-                                        </p>
-                                        <a className={"view-btn"}>VIEW MORE</a>
-                                    </div>   
-                                </div>
-                                <div className={"service-card-v2"} onClick = {(e) => this.cardClick(1)}>
-                                    <img src={NetSec} />
-                                    <div id={"sc-div-id-2"}>
-                                        <h1 id={"sc-header-id-1"}>Technology To Enable Your Organisation</h1>
-                                        <p>
-                                            Already have an IT Team in place, but want to leverage our capacity and experience?
-                                        </p>
-                                        <a className={"view-btn"}>VIEW MORE</a>
-                                    </div>   
-                                </div>
-                                <div className={"service-card-v2"} onClick = {(e) => this.cardClick(2)}>
-                                    <img src={TechMap} />
-                                    <div>
-                                        <h1>Technology Roadmap</h1>
-                                        <p>
-                                            Already have an IT Team in place, but want to leverage our capacity and experience?
-                                        </p>
-                                        <a className={"view-btn"}>VIEW MORE</a>
-                                    </div>   
-                                </div>
-                                <div className={"service-card-v2"} onClick = {(e) => this.cardClick(3)}>
-                                    <img src={Laptop} />
-                                    <div>
-                                        <h1>Procurement</h1>
-                                        <p>
-                                            Already have an IT Team in place, but want to leverage our capacity and experience?
-                                        </p>
-                                        <a className={"view-btn"}>VIEW MORE</a>
-                                    </div>   
-                                </div>
-                                <div className={"service-card-v2"} onClick = {(e) => this.cardClick(4)}>
-                                    <img src={Continuity} />
-                                    <div>
-                                        <h1>Business Continuity Essentials</h1>
-                                        <p>
-                                            Already have an IT Team in place, but want to leverage our capacity and experience?
-                                        </p>
-                                        <a className={"view-btn"}>VIEW MORE</a>
-                                    </div>   
-                                </div>
-                                <div className={"service-card-v2"} onClick = {(e) => this.cardClick(5)}>
-                                    <img src={Support} />
-                                    <div>
-                                        <h1>Supporting Your Business</h1>
-                                        <p>
-                                            Already have an IT Team in place, but want to leverage our capacity and experience?
-                                        </p>
-                                        <a className={"view-btn"}>VIEW MORE</a>
-                                    </div>   
-                                </div>                        
-                            </div>                        
+                            <div className={"container"}>
+                                <h1>SERVICES</h1>                           
+                                <div className={"services"}>
+                                    <div className={"service-card-v2"} onClick = {(e) => this.cardClick(0)}>
+                                        <img src={Clouds} />
+                                        <div id={"sc-div-id-2"}>
+                                            <h1 id={"sc-header-id-1"}>Your Cloud Strategy</h1>
+                                            <p>
+                                                Already have an IT Team in place, but want to leverage our capacity and experience?
+                                            </p>
+                                            <a className={"view-btn"}>VIEW MORE</a>
+                                        </div>   
+                                    </div>
+                                    <div className={"service-card-v2"} onClick = {(e) => this.cardClick(1)}>
+                                        <img src={NetSec} />
+                                        <div id={"sc-div-id-2"}>
+                                            <h1 id={"sc-header-id-1"}>Technology To Enable Your Organisation</h1>
+                                            <p>
+                                                Already have an IT Team in place, but want to leverage our capacity and experience?
+                                            </p>
+                                            <a className={"view-btn"}>VIEW MORE</a>
+                                        </div>   
+                                    </div>
+                                    <div className={"service-card-v2"} onClick = {(e) => this.cardClick(2)}>
+                                        <img src={TechMap} />
+                                        <div>
+                                            <h1>Technology Roadmap</h1>
+                                            <p>
+                                                Already have an IT Team in place, but want to leverage our capacity and experience?
+                                            </p>
+                                            <a className={"view-btn"}>VIEW MORE</a>
+                                        </div>   
+                                    </div>
+                                    <div className={"service-card-v2"} onClick = {(e) => this.cardClick(3)}>
+                                        <img src={Laptop} />
+                                        <div>
+                                            <h1>Procurement</h1>
+                                            <p>
+                                                Already have an IT Team in place, but want to leverage our capacity and experience?
+                                            </p>
+                                            <a className={"view-btn"}>VIEW MORE</a>
+                                        </div>   
+                                    </div>
+                                    <div className={"service-card-v2"} onClick = {(e) => this.cardClick(4)}>
+                                        <img src={Continuity} />
+                                        <div>
+                                            <h1>Business Continuity Essentials</h1>
+                                            <p>
+                                                Already have an IT Team in place, but want to leverage our capacity and experience?
+                                            </p>
+                                            <a className={"view-btn"}>VIEW MORE</a>
+                                        </div>   
+                                    </div>
+                                    <div className={"service-card-v2"} onClick = {(e) => this.cardClick(5)}>
+                                        <img src={Support} />
+                                        <div>
+                                            <h1>Supporting Your Business</h1>
+                                            <p>
+                                                Already have an IT Team in place, but want to leverage our capacity and experience?
+                                            </p>
+                                            <a className={"view-btn"}>VIEW MORE</a>
+                                        </div>   
+                                    </div>                        
+                                </div>  
+                            </div>                      
                         </SwiperSlide>
                         <SwiperSlide data-hash="aboutus">
-                            <h1>About Us</h1>
-                            <div className={"about-us"}>
-                                <div className={"flip-card"}>                           
-                                    <div className={"flip-card-inner"}>
-                                        <div className={"flip-card-front"}>
-                                            <img src={Team}/>
-                                            <h1>Our Team</h1>
+                            <div className={"container"}>
+                                <h1>About Us</h1>
+                                <div className={"about-us"}>
+                                    <div className={"flip-card"}>                           
+                                        <div className={"flip-card-inner"}>
+                                            <div className={"flip-card-front"}>
+                                                <img src={Team}/>
+                                                <h1>Our Team</h1>
+                                            </div>
+                                            <div className={"flip-card-back"}>
+                                                <h1>Our Team</h1>
+                                                <p>Cillum et cillum elit veniam. Aute officia quis nulla tempor dolore exercitation incididunt aliqua excepteur eu labore magna. Voluptate deserunt ex fugiat amet ad cupidatat. Labore Lorem sint exercitation do nisi anim laborum. </p>
+                                            </div>
                                         </div>
-                                        <div className={"flip-card-back"}>
-                                            <h1>Our Team</h1>
-                                            <p>Cillum et cillum elit veniam. Aute officia quis nulla tempor dolore exercitation incididunt aliqua excepteur eu labore magna. Voluptate deserunt ex fugiat amet ad cupidatat. Labore Lorem sint exercitation do nisi anim laborum. </p>
+                                    </div>
+                                    <div className={"flip-card"}>
+                                        <div className={"flip-card-inner"}>
+                                            <div className={"flip-card-front"}>
+                                                <img src={Community}/>
+                                                <h1>Our Community</h1>
+                                            </div>
+                                            <div className={"flip-card-back yellow-bg"}>
+                                                <h1>Our Community</h1>
+                                                <p>Cillum et cillum elit veniam. Aute officia quis nulla tempor dolore exercitation incididunt aliqua excepteur eu labore magna. Voluptate deserunt ex fugiat amet ad cupidatat. Labore Lorem sint exercitation do nisi anim laborum. </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div className={"flip-card"}>
-                                    <div className={"flip-card-inner"}>
-                                        <div className={"flip-card-front"}>
-                                            <img src={Community}/>
-                                            <h1>Our Community</h1>
-                                        </div>
-                                        <div className={"flip-card-back yellow-bg"}>
-                                            <h1>Our Community</h1>
-                                            <p>Cillum et cillum elit veniam. Aute officia quis nulla tempor dolore exercitation incididunt aliqua excepteur eu labore magna. Voluptate deserunt ex fugiat amet ad cupidatat. Labore Lorem sint exercitation do nisi anim laborum. </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            </div>    
                         </SwiperSlide>
                     </Swiper>         
                 </div>
