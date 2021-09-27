@@ -464,19 +464,21 @@ swiper {
   position: relative;
 
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: var(--black);
   font-weight: 300;
 
-  border: 1px solid var(--white);
-  border-radius: 1px;
-  background-color: var(--white);
+  border: 1px solid var(--syn-blue);
+  border-radius: 2px;
+  background-color: var(--syn-blue);
 
-  padding: .5rem;
+  padding: .6rem;
   padding-left: 3rem;
   padding-right: 3rem;
   margin: .5rem;
 
+  text-transform: uppercase;
+  
   transform-origin: center;
   transition: all ease-in-out 200ms;
 }
@@ -488,7 +490,7 @@ swiper {
   font-weight: 100;
 }
 
-.btn-contact::after, .btn-customerportal::after{
+/* .btn-contact::after, .btn-customerportal::after{
   content: "";
   position: absolute;
   width: 100%;
@@ -496,16 +498,16 @@ swiper {
   left: 0;
   top: 0;
 
+  color: var(--white);
   background-color: var(--white);
-  mix-blend-mode: difference;
   
   transform: scaleX(0);
   transform-origin: left;
   transition: all 350ms ease-out;
-}
+} */
 
 .btn-contact:hover, .btn-customerportal:hover{
-  box-shadow: var(--white) 0 0 25px -10px;
+  box-shadow: var(--white) 0 0 25px -15px;
 }
 
 /* Services */
@@ -569,16 +571,17 @@ swiper {
   margin-top: 2rem;
   position: relative;
   text-transform: uppercase;
+  color: var(--white);
 }
 
 .service-card-v2 h1::after{
   content: "";
-  background-color: var(--white);
+  background-color: currentColor;
   position: absolute;
   left: -1.5rem;
   top: calc(100% + .5rem);
   width: 100%;
-  height: 1px;
+  height: 2px;
 
   transform-origin: left;
   transition: all ease-out 300ms;
@@ -606,6 +609,7 @@ swiper {
   background: rgba(0, 0, 0, 0);
   position: relative;
   max-width: fit-content;
+  color: var(--syn-blue) ;
 }
 
 .service-card-v2 div a::after{
@@ -615,7 +619,7 @@ swiper {
   width: 100%;
   left: 0;
   height: 1px;
-  background-color: var(--white);
+  background-color: currentColor;
   transform: scaleX(0);
   transform-origin: left;
   transition: all ease-out 300ms;
@@ -824,4 +828,143 @@ swiper {
 
 .flip-card:hover > .flip-card-inner{
   transform: rotateY(-180deg);
+}
+
+/* Customer Quotes */
+.quotes{
+  display: flex;
+  flex-direction: row;
+  gap: 3vw;
+}
+
+.customer-quote{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 28rem;
+  margin-top: 5rem;
+  transition: all 300ms ease-out;
+}
+
+.quote-head{
+  background-color: var(--beige);
+  display: flex;
+
+  flex-direction: column;
+  padding: 2rem;
+  height: 12rem;
+  align-items: center;
+
+  transform-origin: bottom;
+  transform: scale(1);
+
+  transition: all ease-out 300ms;
+}
+
+.quote-head .company-logo{
+  height: 6rem;
+  width: fit-content;
+
+  transition: all ease-out 300ms;
+}
+
+.quote-head .profile{
+  position: absolute;
+  height: 6rem;
+  bottom: -4rem;
+  background-color: var(--beige);
+  border-radius: 50%;
+  border: 1rem solid var(--beige);
+}
+
+.quote-body{
+  z-index: -1;
+  background-color: var(--dark-grey);
+  height: 5rem;
+
+  transform-origin: top;
+  transition: all ease-out 300ms;
+}
+
+.quote-body div{ 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  opacity: 0;
+  transition: all 100ms linear 0ms;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.quote-body .quote{
+  margin: 2.5rem;
+  margin-top: 4rem;
+  margin-bottom: auto;
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--light-grey);
+  position: relative;
+  isolation: isolate;
+  font-style: italic;
+}
+
+.quote-body .quote::before, .quote-body .quote::after{
+  content: '"';
+  z-index: -1;
+  color: var(--syn-blue);
+  font-size: 5rem;
+  position: absolute;
+  opacity: .4;
+  left: 0;
+  top: 0;
+}
+.quote-body .quote::after{
+  left: auto;
+  top: auto;
+  bottom: -2rem;
+  right: 0;
+}
+
+.quote-body .name{
+  margin-top: auto;
+  margin-bottom: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.quote-body .title{
+  margin: 1rem;
+  margin-top: 0;
+  font-size: 1rem;
+  font-weight: 100;
+  color: var(--light-grey);
+}
+
+
+/*  */
+.customer-quote:hover {
+  margin-top: -5rem;
+}
+
+.customer-quote:hover > .quote-head{
+  height: 8rem;
+  transform: scale(.8);
+}
+
+.customer-quote:hover > .quote-head .company-logo{
+  transform: scale(.8);
+}
+
+.customer-quote:hover .quote-body {
+  height: 18rem;
+  transform: scale(1.2);
+}
+
+.customer-quote:hover .quote-body div{
+  opacity: 1;
+  transition: all 300ms ease-in 300ms;
 }

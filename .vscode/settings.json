@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/4425ec6f-51e4-409c-bfd8-1dd82f3daf8e/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/synergytestwebsite",
+    "appService.deploySubpath": "syn-web\\build"
+}

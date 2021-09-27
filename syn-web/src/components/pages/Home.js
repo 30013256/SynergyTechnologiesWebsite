@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import Hero from '../layout/Hero';
-import Header from "../layout/Header";
 
 import WAVES from 'vanta/dist/vanta.waves.min';
-import { Link, useHistory as history} from 'react-router-dom';
 
 import SwiperCore, { Navigation, Mousewheel } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -19,7 +16,10 @@ import Laptop from '../images/laptop.jpg';
 import Continuity from '../images/continuity.jpg';
 import Support from '../images/support.jpg';
 import Team from '../images/team.png';
-import Community from '../images/community.jpg'
+import Community from '../images/community.jpg';
+
+import TimLoyd from '../images/timloyd.jpg'
+import Ballence from '../images/ballance-logo.png'
 
 import { Squash as Hamburger } from 'hamburger-react'
 
@@ -186,7 +186,7 @@ export class Home extends Component {
                     </ul>
                 </div>
                 <div id="Hero" ref={this.vantaRef} >               
-                    <Swiper lazy={true} hashNavigation={{"watchState": true}} mousewheel={true} allowTouchMove={false} pagination={true} pagination={{"clickable": true}} navigation={true}>
+                    <Swiper speed={500} hashNavigation={{"watchState": true}} mousewheel={true} allowTouchMove={false} pagination={true} pagination={{"clickable": true}} navigation={true}>
                         <SwiperSlide data-hash="home">
                             <div className={"container"}>
                                 <h1>EXTEND AND ENABLE YOUR IT TEAM</h1>
@@ -294,6 +294,52 @@ export class Home extends Component {
                                     </div>
                                 </div>
                             </div>    
+                        </SwiperSlide>
+                        <SwiperSlide data-hash="customerquotes">
+                            <div className={"container"}>
+                                <h1>Customer Quotes</h1>
+                                <div class={"quotes"}>
+                                <div className={"customer-quote"}>
+                                    <div className={"quote-head"}>
+                                        <img className={"company-logo"} src={Ballence}/>
+                                        <img className={"profile"} src={TimLoyd}/>
+                                    </div>                                
+                                    <div className={"quote-body"}> 
+                                        <div>
+                                            <p className="quote">Synergy Tech are experts in the Microsoft System Center Space - they have provided flawless implementation and support where others had failed. I would not hesitate to recommend them to anyone.</p>
+                                            <h3 className={"name"}>Tim Lloyd</h3>
+                                            <p className={"title"}>Acting Chief Digital Officer</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className={"customer-quote"}>
+                                    <div className={"quote-head"}>
+                                        <img className={"company-logo"} src={Ballence}/>
+                                        <img className={"profile"} src={TimLoyd}/>
+                                    </div>                                
+                                    <div className={"quote-body"}> 
+                                        <div>
+                                            <p className="quote">Synergy Tech are experts in the Microsoft System Center Space - they have provided flawless implementation and support where others had failed. I would not hesitate to recommend them to anyone.</p>
+                                            <h3 className={"name"}>Tim Lloyd</h3>
+                                            <p className={"title"}>Acting Chief Digital Officer</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className={"customer-quote"}>
+                                    <div className={"quote-head"}>
+                                        <img className={"company-logo"} src={Ballence}/>
+                                        <img className={"profile"} src={TimLoyd}/>
+                                    </div>                                
+                                    <div className={"quote-body"}> 
+                                        <div>
+                                            <p className="quote">Synergy Tech are experts in the Microsoft System Center Space - they have provided flawless implementation and support where others had failed. I would not hesitate to recommend them to anyone.</p>
+                                            <h3 className={"name"}>Tim Lloyd</h3>
+                                            <p className={"title"}>Acting Chief Digital Officer</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
                         </SwiperSlide>
                     </Swiper>         
                 </div>
