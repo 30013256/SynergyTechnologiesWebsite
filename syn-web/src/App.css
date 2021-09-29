@@ -595,8 +595,9 @@ swiper {
 
 .service-card-v2 p{
   margin: 1.5rem;
-
-  font-size: 1rem;
+  font-size: 1.08rem;
+  font-weight: 100;
+  color: var(--white);
   text-align: left;
   margin-bottom: auto;
 }
@@ -835,6 +836,8 @@ swiper {
   display: flex;
   flex-direction: row;
   gap: 3vw;
+  position: relative;
+  margin-bottom: -10rem;
 }
 
 .customer-quote{
@@ -880,8 +883,9 @@ swiper {
 .quote-body{
   z-index: -1;
   background-color: var(--dark-grey);
-  height: 5rem;
+  height: 18rem;
 
+  transform: scaleY(.28);
   transform-origin: top;
   transition: all ease-out 300ms;
 }
@@ -947,20 +951,15 @@ swiper {
 
 /*  */
 .customer-quote:hover {
-  margin-top: -5rem;
+  transform: translateY(-13rem);
 }
 
 .customer-quote:hover > .quote-head{
-  height: 8rem;
-  transform: scale(.8);
-}
-
-.customer-quote:hover > .quote-head .company-logo{
-  transform: scale(.8);
+  transform: scale(.5) translateY(2rem);
 }
 
 .customer-quote:hover .quote-body {
-  height: 18rem;
+  
   transform: scale(1.2);
 }
 
