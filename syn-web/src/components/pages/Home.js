@@ -27,7 +27,7 @@ import TimLoyd from '../images/timloyd.jpg'
 import BallenceLogo from '../images/ballance-logo.png'
 import JasonSwain from '../images/jasonswain.jpg'
 import SeekaLogo from '../images/seeka-logo.png'
-
+import MarkLeslie from '../images/markLeslie.jpg'
 import TuiLogo from '../images/tui-logo.png'
 
 
@@ -225,13 +225,13 @@ export class Home extends Component {
                                     <div className={"customer-quote"}>
                                         <div className={"quote-head"}>
                                             <img className={"company-logo"} src={TuiLogo}/>
-                                            <img className={"profile"} src={TimLoyd}/>
+                                            <img className={"profile"} src={MarkLeslie}/>
                                         </div>                                
                                         <div className={"quote-body"}> 
                                             <div>
-                                                <p className="quote">Synergy Tech are experts in the Microsoft System Center Space - they have provided flawless implementation and support where others had failed. I would not hesitate to recommend them to anyone.</p>
-                                                <h3 className={"name"}>Tim Lloyd</h3>
-                                                <p className={"title"}>Acting Chief Digital Officer</p>
+                                                <p className="quote">Synergy Tech actually listen to what our objectives are, they provide expert advice and sound business solutions. Synergy's "go the extra mile" attitude is the reason why we always achieve outstanding results no matter the size of the project. They're a fantastic company to work with.</p>
+                                                <h3 className={"name"}>Mark Leslie</h3>
+                                                <p className={"title"}>Business Systems and Information Manager</p>
                                             </div>
                                         </div>
                                     </div>

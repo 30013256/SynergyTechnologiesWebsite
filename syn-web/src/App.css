@@ -206,7 +206,9 @@ header nav ul li a:hover{
 }
 
 /* Contact Form */
-
+input:-webkit-autofill { 
+  background-clip: text;
+}
 
 .contact-form{
   position: absolute;
@@ -284,17 +286,17 @@ form div{
   padding-left: .5rem;
   padding-right: .5rem;
   position: relative;
+  width: 22rem;
 }
 
 form div::before, form div::after{
   content: "";
   position: absolute;
   background-color: var(--dark-grey);
-  width: 1px;
+  width: .1px;
   height: .8rem;
   left: 0;
-  bottom: 0;
-  transform-origin: bottom left;
+  bottom: -1px;
 }
 
 form div::after{
@@ -322,13 +324,13 @@ input{
   letter-spacing: .1rem;
   box-sizing: border-box;
   background-color: transparent;
-  width: 18rem;
+  width: 100%;
   margin-left: 1rem;
 }
 
 select {
+  width: 100%;
   color: var(--dark-grey);
-  width: 22rem;
   border: 1px solid var(--dark-grey);
   background-color: transparent;
   outline: none;
@@ -340,10 +342,21 @@ select {
 }
 
 option{
+  
   background-color: var(--beige);
   font-weight: 100;
   border: none;
   font-size: 1.3rem;
+}
+
+.error{
+  position: absolute;
+  margin: 0;
+  text-align: left;
+  font-size: .8rem;
+  color: red;
+  bottom: -1rem;
+  left: 0;
 }
 
 textarea {
@@ -358,7 +371,7 @@ textarea {
   outline: none;
   width: 100%;
   box-sizing: border-box;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   letter-spacing: .1rem;
 }
 
