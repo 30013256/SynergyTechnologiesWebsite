@@ -434,7 +434,7 @@ swiper {
   gap: 5vh;
 }
 
-.swiper-slide h1 {
+h1 {
   color: var(--white);
   max-width: 50rem;
   text-align: center;
@@ -979,4 +979,146 @@ swiper {
 .customer-quote:hover .quote-body div{
   opacity: 1;
   transition: all 300ms ease-in 300ms;
+}
+
+/* Careers */
+::-webkit-scrollbar{
+  width: .8rem;
+  
+}
+
+::-webkit-scrollbar-track{
+  bottom: 0;
+  background-color: var(--black);
+}
+
+::-webkit-scrollbar-thumb{
+  border-radius: .8rem;
+  background-color: var(--white);
+}
+
+.careers-container{
+  width: 100%;
+  height: 100%; 
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.careers-container h1{
+  margin-top: 10rem;
+}
+
+.careers-container p{
+  font-size: 1.2rem;
+  color: var(--light-grey);
+  font-weight: 300;
+  max-width: 40rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.cta-container{
+  margin-top: 3rem;
+}
+
+.section-header{
+  background-color: var(--white);
+  color: var(--black);
+  padding: .8rem 2rem;
+  font-size: 1.8rem;
+  font-weight: 100;
+}
+
+.why-container{
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+}
+
+.why-container img{
+  height: 22rem;
+}
+
+.border{
+  height: 22rem;
+  box-shadow: -5px 5px var(--white);
+  position: relative;
+}
+
+.border::after{
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--white);
+}
+
+.values-box{
+  background-color: var(--white);
+  display: flex;
+  flex-direction: row;
+  width: 40rem;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.values-box div{
+  width: 15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid var(--dark-grey-text);
+}
+
+.values-box div a{
+  display: flex;
+  flex-direction: row;
+  text-align: right;
+  text-decoration: none;
+  padding: 1.8rem 1rem;
+}
+
+.values-box div a p{
+  padding: 0;
+  margin: 0;
+  text-align: right;
+  position: relative;
+  font-weight: 100;
+}
+
+.values-box div a p::after{
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -.3rem;
+  width: 100%;
+  height: 1px;
+  background-color: var(--dark-grey-text);
+
+  transform-origin: right;
+  transform: scaleX(0);
+
+  transition: all 500ms ease-in-out;
+}
+
+.values-box div a:hover > p::after{
+  transform: scaleX(1);
+}
+
+.values-box div a b{
+  color: var(--syn-blue);
+}
+
+.values-box p{
+  width: 25rem;
+  margin: 1rem;
+  text-align: left;
+  color: var(--dark-grey-text);
 }

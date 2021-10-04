@@ -13,6 +13,8 @@ import 'swiper/swiper-bundle.css';
 import { Pagination } from 'swiper';
 import { HashNavigation } from 'swiper';
 
+import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+
 
 import Clouds from '../images/Clouds.jpg';
 import NetSec from '../images/net-security.jpg';
@@ -30,6 +32,7 @@ import SeekaLogo from '../images/seeka-logo.png'
 import MarkLeslie from '../images/markLeslie.jpg'
 import TuiLogo from '../images/tui-logo.png'
 
+import Couch from '../images/couch.png'
 
 SwiperCore.use([Pagination, Navigation, Mousewheel, HashNavigation]);
 
@@ -128,119 +131,158 @@ export class Home extends Component {
 
     render() {
         return (
-            <div className={"no-scroll"}>
-                {/* InFoCard: Opens in forground, Contains infomation about a selected service when a Service card is clicked */}
-                <InfoCard 
-                    CardExpanded={this.state.CardExpanded} 
-                    cardClick={this.cardClick.bind(this)}
-                    CardNum={this.state.CardNum}
-                    InfoCardTitle={this.state.InfoCardTitle[this.state.CardNum]}
-                    InfoCardContent={this.state.InfoCardContent[this.state.CardNum]}
-                />
-                {/* ContactForm: A contact form that opens in forground on any page */}
-                <ContactForm FormOpen={this.state.FormOpen} toggleContact={this.toggleContact}/>
-                {/* Header: Fixed at top of page contains logo and Hambuger button to open navigation */}
-                <Header IsOpen={this.state.IsOpen} toggleHamburger={this.toggleHamburger}/>
-                {/* Nav: Navigation opens full screen in forground */}
-                <Nav IsOpen={this.state.IsOpen} toggleHamburger={this.toggleHamburger} toggleContact={this.toggleContact}/>
-                <div id="Hero" ref={this.vantaRef} >               
-                    <Swiper speed={500} hashNavigation={{"watchState": true}} mousewheel={true} allowTouchMove={false} pagination={true} pagination={{"clickable": true}} navigation={true}>
-                        <SwiperSlide data-hash="home">
-                            <div className={"container"}>
-                                <h1>EXTEND AND ENABLE YOUR IT TEAM</h1>
-                                <p>Already have an IT Team in place, but want to leverage our capacity and experience? We’ll work along side your organisation to reach your objectives faster with our flexible approach.</p>
-                                <div>
-                                    <a href="#" onClick = {(e) => this.toggleContact()} className={"btn-contact"}>Contact</a>
-                                    <a href="#" className={"btn-customerportal"}>Customer Portal</a>
-                                </div>
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide data-hash="services">
-                            <div className={"container"}>
-                                <h1>SERVICES</h1>                           
-                                <div className={"services"}>{this.serviceCards()}</div>  
-                            </div>                      
-                        </SwiperSlide>
-                        <SwiperSlide data-hash="aboutus">
-                            <div className={"container"}>
-                                <h1>About Us</h1>
-                                <div className={"about-us"}>
-                                    <div className={"flip-card"}>                           
-                                        <div className={"flip-card-inner"}>
-                                            <div className={"flip-card-front"}>
-                                                <img src={Team}/>
-                                                <h1>Our Team</h1>
-                                            </div>
-                                            <div className={"flip-card-back"}>
-                                                <h1>Our Team</h1>
-                                                <p>Cillum et cillum elit veniam. Aute officia quis nulla tempor dolore exercitation incididunt aliqua excepteur eu labore magna. Voluptate deserunt ex fugiat amet ad cupidatat. Labore Lorem sint exercitation do nisi anim laborum. </p>
-                                            </div>
-                                        </div>
+            <Router>  
+                <div className={"no-scroll"}>
+                    {/* InFoCard: Opens in forground, Contains infomation about a selected service when a Service card is clicked */}
+                    <InfoCard 
+                        CardExpanded={this.state.CardExpanded} 
+                        cardClick={this.cardClick.bind(this)}
+                        CardNum={this.state.CardNum}
+                        InfoCardTitle={this.state.InfoCardTitle[this.state.CardNum]}
+                        InfoCardContent={this.state.InfoCardContent[this.state.CardNum]}
+                    />
+                    {/* ContactForm: A contact form that opens in forground on any page */}
+                    <ContactForm FormOpen={this.state.FormOpen} toggleContact={this.toggleContact}/>
+                    {/* Header: Fixed at top of page contains logo and Hambuger button to open navigation */}
+                    <Header IsOpen={this.state.IsOpen} toggleHamburger={this.toggleHamburger}/>
+                    {/* Nav: Navigation opens full screen in forground */}
+                    <Nav IsOpen={this.state.IsOpen} toggleHamburger={this.toggleHamburger} toggleContact={this.toggleContact}/>
+                    <div id="Hero" ref={this.vantaRef} >                    
+                            <Route path="/careers" exact>
+                                <div className={'careers-container'}>
+                                    <h1>Careers</h1>
+                                    <p>
+                                        We’re always looking for talented people to join our team. If you’re keen to work with an innovative and highly successful team who challenge themselves, take up opportunities to develop outside of business-as-usual, enjoy collaborating, sharing knowledge, and learning from others… then you could be our next team member.
+                                    </p>
+                                    <div className={"cta-container"}>  
+                                        <a href="#" onClick = {(e) => this.toggleContact()} className={"btn-contact"}>Contact</a>
+                                        <a href="#" className={"btn-customerportal"}>View Avalible Jobs</a>                                           
                                     </div>
-                                    <div className={"flip-card"}>
-                                        <div className={"flip-card-inner"}>
-                                            <div className={"flip-card-front"}>
-                                                <img src={Community}/>
-                                                <h1>Our Community</h1>
-                                            </div>
-                                            <div className={"flip-card-back yellow-bg"}>
-                                                <h1>Our Community</h1>
-                                                <p>Cillum et cillum elit veniam. Aute officia quis nulla tempor dolore exercitation incididunt aliqua excepteur eu labore magna. Voluptate deserunt ex fugiat amet ad cupidatat. Labore Lorem sint exercitation do nisi anim laborum. </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>    
-                        </SwiperSlide>
-                        <SwiperSlide data-hash="customerquotes">
-                            <div className={"container"}>
-                                <h1>Customer Quotes</h1>
-                                <div class={"quotes"}>
-                                    <div className={"customer-quote"}>
-                                        <div className={"quote-head"}>
-                                            <img className={"company-logo"} src={BallenceLogo}/>
-                                            <img className={"profile"} src={TimLoyd}/>
-                                        </div>                                
-                                        <div className={"quote-body"}> 
+                                    <h1 className={"section-header"} >Why Work For Us?</h1>
+                                    <div className={"why-container"}>
+                                        <div className={"values-box"}>
                                             <div>
-                                                <p className="quote">Synergy Tech are experts in the Microsoft System Center Space - they have provided flawless implementation and support where others had failed. I would not hesitate to recommend them to anyone.</p>
-                                                <h3 className={"name"}>Tim Lloyd</h3>
-                                                <p className={"title"}>Acting Chief Digital Officer</p>
+                                                <a href="#"><p>People <b>First</b></p></a>
+                                                <a href="#"><p>Always <b>Listening</b></p></a>
+                                                <a href="#"><p>Always <b>Learning</b></p></a>
+                                                <a href="#"><p>Always With <b>Integretiy</b></p></a>
                                             </div>
+                                            <p>
+                                                This is at the core of everything we do. We believe in maintaining a strong culture with our internal team, building lasting relationships with our customers, and making a positive impact in the communities where we live and operate.
+                                            </p>
+                                        </div>
+                                        <div className={"border"}>
+                                            <img src={Couch}/>
                                         </div>
                                     </div>
-                                    <div className={"customer-quote"}>
-                                        <div className={"quote-head"}>
-                                            <img className={"company-logo"} src={SeekaLogo}/>
-                                            <img className={"profile"} src={JasonSwain}/>
-                                        </div>                                
-                                        <div className={"quote-body"}> 
+
+                                    
+                                    
+                                </div>    
+                            </Route>
+                        <Switch>
+                            <Route path="/" exact>
+                                <Swiper speed={500} hashNavigation={{"watchState": true}} mousewheel={true} allowTouchMove={false} pagination={true} pagination={{"clickable": true}} navigation={true}>
+                                    <SwiperSlide data-hash="home">
+                                        <div className={"container"}>
+                                            <h1>EXTEND AND ENABLE YOUR IT TEAM</h1>
+                                            <p>Already have an IT Team in place, but want to leverage our capacity and experience? We’ll work along side your organisation to reach your objectives faster with our flexible approach.</p>
                                             <div>
-                                                <p className="quote">Seeka relies on the expertise and integrity that the team at Synergy Tech provides. They are an integral part of key systems projects at Seeka and constantly deliver excellent outcomes.</p>
-                                                <h3 className={"name"}>Jason Swain</h3>
-                                                <p className={"title"}>General Manager - Information Systems</p>
+                                                <a href="#" onClick = {(e) => this.toggleContact()} className={"btn-contact"}>Contact</a>
+                                                <a href="#" className={"btn-customerportal"}>Customer Portal</a>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className={"customer-quote"}>
-                                        <div className={"quote-head"}>
-                                            <img className={"company-logo"} src={TuiLogo}/>
-                                            <img className={"profile"} src={MarkLeslie}/>
-                                        </div>                                
-                                        <div className={"quote-body"}> 
-                                            <div>
-                                                <p className="quote">Synergy Tech actually listen to what our objectives are, they provide expert advice and sound business solutions. Synergy's "go the extra mile" attitude is the reason why we always achieve outstanding results no matter the size of the project. They're a fantastic company to work with.</p>
-                                                <h3 className={"name"}>Mark Leslie</h3>
-                                                <p className={"title"}>Business Systems and Information Manager</p>
+                                    </SwiperSlide>
+                                    <SwiperSlide data-hash="services">
+                                        <div className={"container"}>
+                                            <h1>SERVICES</h1>                           
+                                            <div className={"services"}>{this.serviceCards()}</div>  
+                                        </div>                      
+                                    </SwiperSlide>
+                                    <SwiperSlide data-hash="aboutus">
+                                        <div className={"container"}>
+                                            <h1>About Us</h1>
+                                            <div className={"about-us"}>
+                                                <div className={"flip-card"}>                           
+                                                    <div className={"flip-card-inner"}>
+                                                        <div className={"flip-card-front"}>
+                                                            <img src={Team}/>
+                                                            <h1>Our Team</h1>
+                                                        </div>
+                                                        <div className={"flip-card-back"}>
+                                                            <h1>Our Team</h1>
+                                                            <p>Cillum et cillum elit veniam. Aute officia quis nulla tempor dolore exercitation incididunt aliqua excepteur eu labore magna. Voluptate deserunt ex fugiat amet ad cupidatat. Labore Lorem sint exercitation do nisi anim laborum. </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className={"flip-card"}>
+                                                    <div className={"flip-card-inner"}>
+                                                        <div className={"flip-card-front"}>
+                                                            <img src={Community}/>
+                                                            <h1>Our Community</h1>
+                                                        </div>
+                                                        <div className={"flip-card-back yellow-bg"}>
+                                                            <h1>Our Community</h1>
+                                                            <p>Cillum et cillum elit veniam. Aute officia quis nulla tempor dolore exercitation incididunt aliqua excepteur eu labore magna. Voluptate deserunt ex fugiat amet ad cupidatat. Labore Lorem sint exercitation do nisi anim laborum. </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>    
+                                    </SwiperSlide>
+                                    <SwiperSlide data-hash="customerquotes">
+                                        <div className={"container"}>
+                                            <h1>Customer Quotes</h1>
+                                            <div class={"quotes"}>
+                                                <div className={"customer-quote"}>
+                                                    <div className={"quote-head"}>
+                                                        <img className={"company-logo"} src={BallenceLogo}/>
+                                                        <img className={"profile"} src={TimLoyd}/>
+                                                    </div>                                
+                                                    <div className={"quote-body"}> 
+                                                        <div>
+                                                            <p className="quote">Synergy Tech are experts in the Microsoft System Center Space - they have provided flawless implementation and support where others had failed. I would not hesitate to recommend them to anyone.</p>
+                                                            <h3 className={"name"}>Tim Lloyd</h3>
+                                                            <p className={"title"}>Acting Chief Digital Officer</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className={"customer-quote"}>
+                                                    <div className={"quote-head"}>
+                                                        <img className={"company-logo"} src={SeekaLogo}/>
+                                                        <img className={"profile"} src={JasonSwain}/>
+                                                    </div>                                
+                                                    <div className={"quote-body"}> 
+                                                        <div>
+                                                            <p className="quote">Seeka relies on the expertise and integrity that the team at Synergy Tech provides. They are an integral part of key systems projects at Seeka and constantly deliver excellent outcomes.</p>
+                                                            <h3 className={"name"}>Jason Swain</h3>
+                                                            <p className={"title"}>General Manager - Information Systems</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className={"customer-quote"}>
+                                                    <div className={"quote-head"}>
+                                                        <img className={"company-logo"} src={TuiLogo}/>
+                                                        <img className={"profile"} src={MarkLeslie}/>
+                                                    </div>                                
+                                                    <div className={"quote-body"}> 
+                                                        <div>
+                                                            <p className="quote">Synergy Tech actually listen to what our objectives are, they provide expert advice and sound business solutions. Synergy's "go the extra mile" attitude is the reason why we always achieve outstanding results no matter the size of the project. They're a fantastic company to work with.</p>
+                                                            <h3 className={"name"}>Mark Leslie</h3>
+                                                            <p className={"title"}>Business Systems and Information Manager</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </SwiperSlide>
-                    </Swiper>         
+                                    </SwiperSlide>
+                                </Swiper>
+                            </Route>
+                            
+                        </Switch>                           
+                    </div>
                 </div>
-            </div>
+            </Router>
         )
     }
 }
