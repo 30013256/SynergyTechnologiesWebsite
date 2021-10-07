@@ -1011,12 +1011,13 @@ h1 {
 }
 
 .careers-container p{
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: var(--light-grey);
   font-weight: 300;
-  max-width: 40rem;
+  max-width: 50rem;
   text-align: center;
   margin-top: 3rem;
+  line-height: 140%;
 }
 
 .cta-container{
@@ -1029,6 +1030,7 @@ h1 {
   padding: .8rem 2rem;
   font-size: 1.8rem;
   font-weight: 100;
+  margin-top: 20rem;
 }
 
 .why-container{
@@ -1070,7 +1072,7 @@ h1 {
 }
 
 .values-box div{
-  width: 15rem;
+  width: 18rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1117,8 +1119,35 @@ h1 {
 }
 
 .values-box p{
-  width: 25rem;
+  width: 22rem;
   margin: 1rem;
   text-align: left;
   color: var(--dark-grey-text);
+}
+
+.video-container {
+  overflow: hidden;
+  position: relative;
+  width: 60rem;
+}
+
+
+
+.video-container::after {
+  padding-top: 56.25%;
+  display: block;
+  content: '';
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.vid{
+  width: 60rem;
+  margin: 10rem;
 }

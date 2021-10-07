@@ -158,7 +158,7 @@ export class Home extends Component {
                                         <a href="#" onClick = {(e) => this.toggleContact()} className={"btn-contact"}>Contact</a>
                                         <a href="#" className={"btn-customerportal"}>View Avalible Jobs</a>                                           
                                     </div>
-                                    <h1 className={"section-header"} >Why Work For Us?</h1>
+                                    <div className={"section-header"}>Why Work For Us?</div>
                                     <div className={"why-container"}>
                                         <div className={"values-box"}>
                                             <div>
@@ -173,12 +173,14 @@ export class Home extends Component {
                                         </div>
                                         <div className={"border"}>
                                             <img src={Couch}/>
-                                        </div>
+                                        </div>                                       
                                     </div>
-
-                                    
-                                    
-                                </div>    
+                                    <div className={"vid"}>
+                                        <div class="video-container">
+                                            <iframe src="https://www.youtube.com/embed/wHwA1FzuVdY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        </div>            
+                                    </div>    
+                                </div>
                             </Route>
                         <Switch>
                             <Route path="/" exact>
