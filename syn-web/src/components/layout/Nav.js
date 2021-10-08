@@ -9,7 +9,7 @@ export default function Nav(props) {
                     <li><a href="/#home" onClick={props.toggleHamburger}>Home</a></li>
                     <li><a href="/#services" onClick={props.toggleHamburger}>Services</a></li>
                     <li><a href="/#aboutus" onClick={props.toggleHamburger}>About Us</a></li>
-                    <li><Link to="/careers" onClick={props.toggleHamburger}>Careers</Link></li>
+                    <li><Link to="careers" onClick={props.toggleHamburger}>Careers</Link></li>
                     <li>
                         <a href="#" 
                             onClick={ () => {
