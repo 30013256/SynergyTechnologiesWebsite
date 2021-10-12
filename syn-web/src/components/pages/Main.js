@@ -4,7 +4,8 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/swiper-bundle.css'
 import { Pagination } from 'swiper'
 import { HashNavigation } from 'swiper'
-
+//Components
+import FlipCard from '../layout/FlipCard'
 //images
 ///about us
 import Team from '../images/team.png'
@@ -20,6 +21,12 @@ import TuiLogo from '../images/tui-logo.png'
 SwiperCore.use([Pagination, Navigation, Mousewheel, HashNavigation]);
 
 export class Main extends Component{    
+    
+    state = { 
+        OurTeamContent: "Our Team Cillum et cillum elit veniam. Aute officia quis nulla tempor dolore exercitation incididunt aliqua excepteur eu labore magna. Voluptate deserunt ex fugiat amet ad cupidatat. Labore Lorem sint exercitation do nisi anim laborum. ",
+        OurCommunityContent: "Our Comunity Cillum et cillum elit veniam. Aute officia quis nulla tempor dolore exercitation incididunt aliqua excepteur eu labore magna. Voluptate deserunt ex fugiat amet ad cupidatat. Labore Lorem sint exercitation do nisi anim laborum. "
+    }
+    
     swiperNavMobile(){
         const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
         if (vw < 900) return false
@@ -69,36 +76,14 @@ export class Main extends Component{
                         <div className={"container"}>
                             <h1>About Us</h1>
                             <div className={"about-us"}>
-                                <div className={"flip-card"}>                           
-                                    <div className={"flip-card-inner"}>
-                                        <div className={"flip-card-front"}>
-                                            <img src={Team}/>
-                                            <h1>Our Team</h1>
-                                        </div>
-                                        <div className={"flip-card-back"}>
-                                            <h1>Our Team</h1>
-                                            <p>Cillum et cillum elit veniam. Aute officia quis nulla tempor dolore exercitation incididunt aliqua excepteur eu labore magna. Voluptate deserunt ex fugiat amet ad cupidatat. Labore Lorem sint exercitation do nisi anim laborum. </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className={"flip-card"}>
-                                    <div className={"flip-card-inner"}>
-                                        <div className={"flip-card-front"}>
-                                            <img src={Community}/>
-                                            <h1>Our Community</h1>
-                                        </div>
-                                        <div className={"flip-card-back yellow-bg"}>
-                                            <h1>Our Community</h1>
-                                            <p>Cillum et cillum elit veniam. Aute officia quis nulla tempor dolore exercitation incididunt aliqua excepteur eu labore magna. Voluptate deserunt ex fugiat amet ad cupidatat. Labore Lorem sint exercitation do nisi anim laborum. </p>
-                                        </div>
-                                    </div>
-                                </div>
+                                <FlipCard img={Team} header={"Our Team"} content={this.state.OurTeamContent}/>
+                                <FlipCard img={Community} header={"Our Community"} content={this.state.OurCommunityContent}/>
                             </div>
                         </div>    
                     </SwiperSlide>
-                    <SwiperSlide data-hash="customerquotes">
+                    <SwiperSlide data-hash="testimonials">
                         <div className={"container"}>
-                            <h1>Customer Quotes</h1>
+                            <h1>testimonials</h1>
                             <div class={"quotes"}>
                                 <div className={"customer-quote"}>
                                     <div className={"quote-head"}>

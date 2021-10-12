@@ -8,8 +8,10 @@ export default function InfoCard(props) {
                 className={props.CardExpanded ? "infocard expanded" : "infocard"}
             >
                 <div>
-                    <h1>{props.InfoCardTitle}</h1>
-                    <p>{props.InfoCardContent}</p>
+                    <div className={"info-card-container"}>
+                        <h1>{props.InfoCardTitle}</h1>
+                        <p>{props.InfoCardContent}</p>
+                    </div>
                 </div>
             </div>
         </>

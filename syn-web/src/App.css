@@ -5,7 +5,7 @@
     --dark-grey: rgb(7, 7, 7);
     --dark-grey-text: rgb(32, 32, 32);
     --syn-blue: #00AEEF;
-    --beige: #eeeeee;
+    --beige: #dce1e4;
 }
 
 /* Page */
@@ -15,6 +15,10 @@ html, body {
     overflow-x: hidden;
     letter-spacing: 0.04em;
     font-family: 'Roboto';
+}
+
+::selection {
+    background: var(--syn-blue); /* WebKit/Blink Browsers */
 }
 
 #vanta {
@@ -392,6 +396,8 @@ h1 {
     line-height: 160%;
 }
 
+
+
 .swiper-pagination-bullets { 
     margin-bottom: 1rem;
 }
@@ -409,7 +415,7 @@ h1 {
     color: var(--white) !important;
 }
 
-.btn-wrap{
+.btn-wrap {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -641,51 +647,67 @@ h1 {
     z-index: -20;
 }
 
-.infocard div {
+.infocard > div {
     position: relative;
-    width: 80vw;
-    height: 80vh;
-    max-width: 90rem;
-    max-height: 50rem;
+    max-width: 1000px;
     background-color: var(--beige) !important;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    align-items: center;
+    margin: 1rem;
+    padding: 0;
     border-radius: 1px;
     opacity: 0;
+    overflow: hidden;
 
     transform: scale(0);
     transform-origin: center;
     transition: all ease-out 200ms;
 }
 
-.infocard div h1 {
-    color: var(--white);
-    background-color: var(--black);
-    font-weight: 100;
-    font-size: 2rem;
-    padding: 1.2rem;
-    padding-left: 6rem;
-    margin-top: 4rem;
-    margin-left: 0;
-    text-align: center;
-    text-transform: uppercase;
-    max-width: 100%;
-    margin-right: auto;
+.info-card-container, .flip-card-back-container{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    text-align: left;
+    margin: 2rem;
+    position: relative;
 }
 
-.infocard div p {
+.infocard h1, .flip-card-back h1 {
+    position: relative;
+    text-align: left;
+    color: var(--black);
+    font-weight: 100;
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin: 0;
+    isolation: isolate;
+}
+
+.infocard p, .flip-card-back p {
+    max-width: 100%;
+    text-align: left;
     color: var(--dark-grey-text);
     font-weight: 300;
-    font-size: 1.7rem;
-    margin: 3rem;
+    font-size: 1.8rem;
     width: 100%;
-    max-width: 60rem;
+    margin: 2rem 0;
+    padding-top: 2rem;
+    border-top: 2px solid var(--dark-grey-text);
+    white-space: pre-line;
+}
+
+@media only screen and (max-width: 1000px) {  
+    .infocard h1 {
+        font-size: 2.5rem;
+    }
+    
+    .infocard p {
+        font-size: 2rem;
+    }
 }
 
 .expanded {
-    background-color: rgba(68, 68, 68, 0.2);
+    background-color: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(3px);
     z-index: 9999;
 }
@@ -700,11 +722,14 @@ h1 {
     display: flex;
     position: relative;
     gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
-.flip-card {
-    width: 35vw;
-    height: 50vh;
+.flip-card {   
+    width: 40rem;
+    height: 30rem;
     background: transparent;
     transition: all ease-in-out 500ms;
 
@@ -769,34 +794,15 @@ h1 {
     transform: rotateY(180deg);
 }
 
-.flip-card-back h1 {
-    color: var(--white);
-    background-color: var(--black);
-    font-weight: 100;
-    font-size: 1.8rem;
-    padding: .8rem;
-    padding-left: 3rem;
-    margin-top: 2rem;
-    margin-left: 0;
-    margin-bottom: 0;
-    text-align: center;
-    max-width: 100%;
-    margin-right: auto;
-    text-transform: uppercase;
-}
-
-.flip-card-back p {
-    color: var(--dark-grey-text);
-    font-weight: 300;
-    font-size: 1.4rem;
-    margin-left: 3rem;
-    text-align: left;
-}
-
 .flip-card:hover > .flip-card-inner {
     transform: rotateY(-180deg);
 }
 
+@media only screen and (max-width: 1000px) {  
+    .flip-card {   
+        width: 90vw;
+    }
+}
 /* Customer Quotes */
 .quotes {
     display: flex;
@@ -804,6 +810,9 @@ h1 {
     gap: 3vw;
     position: relative;
     margin-bottom: -10rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
 .customer-quote {
@@ -814,6 +823,12 @@ h1 {
     margin-top: 5rem;
 
     transition: all 300ms ease-out;
+}
+
+@media only screen and (max-width: 1000px) {  
+    .customer-quote {
+        margin-top: -8rem;
+    }
 }
 
 .quote-head {
