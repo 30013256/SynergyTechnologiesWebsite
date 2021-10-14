@@ -84,8 +84,8 @@ export class Main extends Component{
                     <SwiperSlide data-hash="testimonials">
                         <div className={"container"}>
                             <h1>testimonials</h1>
-                            <div class={"quotes"}>
-                                <div className={"customer-quote"}>
+                            <div class={"quotes"}>                                
+                                <div id="q1" className={"customer-quote"}>
                                     <div className={"quote-head"}>
                                         <img className={"company-logo"} src={BallenceLogo}/>
                                         <img className={"profile"} src={TimLoyd}/>
@@ -98,7 +98,7 @@ export class Main extends Component{
                                         </div>
                                     </div>
                                 </div>
-                                <div className={"customer-quote"}>
+                                <div id="q2" className={"customer-quote"}>
                                     <div className={"quote-head"}>
                                         <img className={"company-logo"} src={SeekaLogo}/>
                                         <img className={"profile"} src={JasonSwain}/>
@@ -111,7 +111,7 @@ export class Main extends Component{
                                         </div>
                                     </div>
                                 </div>
-                                <div className={"customer-quote"}>
+                                <div id="q3" className={"customer-quote"}>
                                     <div className={"quote-head"}>
                                         <img className={"company-logo"} src={TuiLogo}/>
                                         <img className={"profile"} src={MarkLeslie}/>
