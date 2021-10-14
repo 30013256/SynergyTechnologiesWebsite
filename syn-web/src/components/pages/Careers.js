@@ -48,14 +48,11 @@ export default function Careers(props) {
                     <div className={"container"}>
                         <h1>Our Values</h1>
                         <div className={"why-container"}>
-                            <div className={"values-box"}>
-                                <div>
-                                    <a href="#" onClick={() => setValue = 0} ><p>People <b>First</b></p></a>
-                                    <a href="#" onClick={() => setValue = 1} ><p>Always <b>Listening</b></p></a>
-                                    <a href="#" onClick={() => setValue = 2} ><p>Always <b>Learning</b></p></a>
-                                    <a href="#" onClick={() => setValue = 3} ><p>Always With <b>Integretiy</b></p></a>
-                                </div>
-                                <p>{values[value]}</p>
+                            <div className={"values-box"}>                               
+                                <a href="#" onClick={() => setValue(0)} ><p>People <b>First</b></p></a>
+                                <a href="#" onClick={() => setValue(1)} ><p>Always <b>Listening</b></p></a>
+                                <a href="#" onClick={() => setValue(2)} ><p>Always <b>Learning</b></p></a>
+                                <a href="#" onClick={() => setValue(3)} ><p>Always With <b>Integretiy</b></p></a>
                             </div>
                             <div className={"border"}>
                                 <img src={Couch}/>

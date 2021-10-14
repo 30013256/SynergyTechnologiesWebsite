@@ -1082,27 +1082,23 @@ h1 {
 }
 
 .values-box {
-    background-color: var(--white);
+    outline: 1px solid red;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 40rem;
     padding: 1rem;
     gap: 1rem;
 }
 
-.values-box div {
-    width: 18rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border-right: 1px solid var(--dark-grey-text);
-}
 
-.values-box div a {
+.values-box a {
     display: flex;
     flex-direction: row;
-    text-align: right;
+    text-align: center;
     text-decoration: none;
+    width: 100%;
     padding: 1.8rem 1rem;
 }
 
@@ -1114,23 +1110,6 @@ h1 {
     font-weight: 100;
 }
 
-.values-box div a p::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    bottom: -.3rem;
-    width: 100%;
-    height: 1px;
-    background-color: var(--dark-grey-text);
-        
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: all 500ms ease-in-out;
-}
-
-.values-box div a:hover > p::after {
-   transform: scaleX(1);
-}
 
 .values-box div a b {
   color: var(--syn-blue);
@@ -1140,7 +1119,7 @@ h1 {
     width: 22rem;
     margin: 1rem;
     text-align: left;
-    color: var(--dark-grey-text);
+    color: var(--light-grey);
 }
 
 @media screen and (max-width: 500px) {
