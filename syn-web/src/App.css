@@ -5,7 +5,7 @@
     --dark-grey: rgb(7, 7, 7);
     --dark-grey-text: rgb(32, 32, 32);
     --syn-blue: #00AEEF;
-    --beige: #d5dfe6;
+    --beige: #dce3e9;
 }
 
 /* Page */
@@ -18,7 +18,7 @@ html, body {
 }
 
 ::selection {
-    background: var(--syn-blue); /* WebKit/Blink Browsers */
+    background: var(--syn-blue);
 }
 
 #vanta {
@@ -106,7 +106,7 @@ header nav .logo img {
 
 .menu ul li {
     text-align: center;
-    padding: 1.5rem;
+    padding: 1.2rem;
 }
 
 .menu ul li a {
@@ -377,7 +377,7 @@ swiper {
 }  
 
 h1 {
-    color: var(--white);
+    color: var(--syn-blue);
     max-width: 50rem;
     text-align: center;
     margin: 1rem;
@@ -388,15 +388,19 @@ h1 {
 
 .swiper-slide p {
     color: var(--light-grey);
-    max-width: 35rem;
+    max-width: 45rem;
     margin: 1rem;
     text-align: center;
     font-weight: 300;
-    font-size: 1.3rem;
-    line-height: 160%;
+    font-size: 1.4rem;
+    line-height: 170%;
 }
 
-
+@media screen and (max-width: 1000px) {
+    .swiper-slide p {
+        font-size: 1.6rem;
+    }
+}
 
 .swiper-pagination-bullets { 
     margin-bottom: 1rem;
@@ -794,8 +798,44 @@ h1 {
     transform: rotateY(180deg);
 }
 
+.flipcard-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+}
+
+.flipcard-header a {
+    position: relative;
+    margin-left: auto;
+    text-decoration: none;
+    color: var(--syn-blue);
+    font-size: 1.4rem;
+    text-transform: uppercase;
+}
+
+.flipcard-header a::after {
+    content: "";
+    position: absolute;
+    bottom: -.4rem;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--syn-blue);
+
+    transform-origin: center;
+    transform: scaleX(0);
+    transition: all 300ms ease-out;
+}
+
 .flip-card:hover > .flip-card-inner {
     transform: rotateY(-180deg);
+}
+
+.flip-card:hover .flipcard-header a::after {
+    transform: scaleX(1);
+    transition: all 300ms ease-out 500ms;
 }
 
 @media only screen and (max-width: 1000px) {  
@@ -823,6 +863,16 @@ h1 {
     flex-direction: column;
     width: 28rem;
     transition: all 300ms ease-out;
+}
+
+.up-arrow{
+    position: absolute;
+    width: 2rem;
+    height: 1.2rem;
+    bottom: .4rem;
+    left: calc(50% -1rem);
+
+    transition: all 300ms linear 300ms;
 }
 
 @media only screen and (max-width: 1200px) {  
@@ -891,7 +941,7 @@ h1 {
     height: 100%;
     opacity: 0; 
 
-    transition: all 100ms linear 0ms;
+    transition: all 80ms linear 0ms;
 }
 
 .quote-body .quote {
@@ -960,6 +1010,11 @@ h1 {
 
 
 /* quote hover effects */
+.customer-quote:hover > .up-arrow{
+    opacity: 0;
+    transition: all 100ms linear 0ms;
+}
+
 .customer-quote:hover > .quote-head{
     transform: translateY(-10rem) scale(.6);
 }
@@ -997,62 +1052,12 @@ h1 {
 
 
 /* Careers */
-::-webkit-scrollbar {
-    width: .8rem;  
-}
-
-::-webkit-scrollbar-track {
-    bottom: 0;
-    background-color: var(--black);
-}
-
-::-webkit-scrollbar-thumb {
-    border-radius: .8rem;
-    background-color: var(--white);
-}
-
-.careers-container {
-    width: 100%;
-    height: 100%; 
-    overflow-y: scroll;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.careers-container h1 {
-   margin-top: 10rem;
-}
-
-.careers-container p {
-    font-size: 1.5rem;
-    color: var(--light-grey);
-    font-weight: 300;
-    max-width: 50rem;
-    text-align: center;
-    margin-top: 3rem;
-    line-height: 140%;
-}
-
-.cta-container {
-    margin-top: 3rem;
-}
-
-.section-header {
-    background-color: var(--white);
-    color: var(--black);
-    padding: .8rem 2rem;
-    font-size: 1.8rem;
-    font-weight: 100;
-    margin-top: 20rem;
-}
-
 .why-container {
-    margin-top: 5rem;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap-reverse;
     gap: 5rem;
 }
 
@@ -1138,10 +1143,25 @@ h1 {
     color: var(--dark-grey-text);
 }
 
+@media screen and (max-width: 500px) {
+    .values-box {
+        width: 36rem;
+    }
+
+    .values-box p {
+        width: 20rem;
+    }
+    .values-box div {
+        width: 16rem;
+    }
+}
+
 .video-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
     position: relative;
-    width: 60rem;
 }
 
 .video-container::after {
@@ -1159,6 +1179,6 @@ h1 {
 }
 
 .vid {
-    width: 60rem;
-    margin: 10rem;
+    width: 80vw;
+    max-width: 60rem;
 }

@@ -20,6 +20,11 @@ import Continuity from '../images/continuity.jpg'
 import Support from '../images/support.jpg'
 
 export class Home extends Component {
+    constructor(props) {
+        super(props);
+        this.scrollInto = React.createRef();
+      }
+
     state = {
         FormOpen: false,
         CardExpanded: false,
@@ -29,7 +34,7 @@ export class Home extends Component {
         InfoCardTitle: [
             "YOUR CLOUD STRATEGY",
             "Technology To Enable Your Organisation",
-            "TECHNOLOGY ROAD MAP",
+            "TECHNOLOGY ROADMAP",
             "Procurement",
             "Business Continuity Essentials",          
             "Supporting Your Business",
@@ -55,6 +60,10 @@ export class Home extends Component {
             Continuity,
             Support
         ]      
+    }  
+
+    componentDidMount(){
+        this.scrollInto.current.scrollIntoView()
     }
 
     //Toggles info card
@@ -94,7 +103,7 @@ export class Home extends Component {
                 {/* Nav: Navigation opens full screen in forground */}
                 <Nav IsOpen={this.state.IsOpen} toggleHamburger={this.toggleHamburger} toggleContact={this.toggleContact}/>
 
-                <div id="Hero">                                              
+                <div id="Hero" ref={this.scrollInto}>                                              
                     <Switch>
                         <Route path="/careers">
                             <Careers />

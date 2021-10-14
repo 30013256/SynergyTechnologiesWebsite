@@ -6,6 +6,7 @@ export default function Nav(props) {
         <>
             <div className={props.IsOpen ? "menu menu-open" : "menu"}>
                 <ul>
+                    <li><a href="/#home" onClick={props.toggleHamburger}>Home</a></li>
                     <li><a href="/#services" onClick={props.toggleHamburger}>Services</a></li>
                     <li><a href="/#aboutus" onClick={props.toggleHamburger}>About Us</a></li>
                     <li><a href="/#testimonials" onClick={props.toggleHamburger}>testimonials</a></li>

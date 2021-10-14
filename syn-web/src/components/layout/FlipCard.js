@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function FlipCard(props) {
     return (
@@ -11,7 +12,10 @@ export default function FlipCard(props) {
                     </div>
                     <div className={"flip-card-back"}>
                         <div className={"flip-card-back-container"}>
-                            <h1>{props.header}</h1>
+                            <div className={"flipcard-header"}>
+                                <h1>{props.header}</h1>
+                                <Link to="careers">Veiw Careers Page</Link>
+                            </div>                       
                             <p>{props.content}</p>
                         </div>
                     </div>

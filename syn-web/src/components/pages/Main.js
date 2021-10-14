@@ -6,6 +6,7 @@ import { Pagination } from 'swiper'
 import { HashNavigation } from 'swiper'
 //Components
 import FlipCard from '../layout/FlipCard'
+import QuoteCard from '../layout/QuoteCard'
 //images
 ///about us
 import Team from '../images/team.png'
@@ -84,46 +85,16 @@ export class Main extends Component{
                     <SwiperSlide data-hash="testimonials">
                         <div className={"container"}>
                             <h1>testimonials</h1>
-                            <div class={"quotes"}>                                
-                                <div id="q1" className={"customer-quote"}>
-                                    <div className={"quote-head"}>
-                                        <img className={"company-logo"} src={BallenceLogo}/>
-                                        <img className={"profile"} src={TimLoyd}/>
-                                    </div>                                
-                                    <div className={"quote-body"}> 
-                                        <div>
-                                            <p className="quote">Synergy Tech are experts in the Microsoft System Center Space - they have provided flawless implementation and support where others had failed. I would not hesitate to recommend them to anyone.</p>
-                                            <h3 className={"name"}>Tim Lloyd</h3>
-                                            <p className={"title"}>Acting Chief Digital Officer</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="q2" className={"customer-quote"}>
-                                    <div className={"quote-head"}>
-                                        <img className={"company-logo"} src={SeekaLogo}/>
-                                        <img className={"profile"} src={JasonSwain}/>
-                                    </div>                                
-                                    <div className={"quote-body"}> 
-                                        <div>
-                                            <p className="quote">Seeka relies on the expertise and integrity that the team at Synergy Tech provides. They are an integral part of key systems projects at Seeka and constantly deliver excellent outcomes.</p>
-                                            <h3 className={"name"}>Jason Swain</h3>
-                                            <p className={"title"}>General Manager - Information Systems</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="q3" className={"customer-quote"}>
-                                    <div className={"quote-head"}>
-                                        <img className={"company-logo"} src={TuiLogo}/>
-                                        <img className={"profile"} src={MarkLeslie}/>
-                                    </div>                                
-                                    <div className={"quote-body"}> 
-                                        <div>
-                                            <p className="quote">Synergy Tech actually listen to what our objectives are, they provide expert advice and sound business solutions. Synergy's "go the extra mile" attitude is the reason why we always achieve outstanding results no matter the size of the project. They're a fantastic company to work with.</p>
-                                            <h3 className={"name"}>Mark Leslie</h3>
-                                            <p className={"title"}>Business Systems and Information Manager</p>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class={"quotes"}>  
+                                <QuoteCard id="q1" companyLogo={BallenceLogo} profile={TimLoyd} name="Time Loyd" title={"Acting Chief Digital Officer"}
+                                    quote={"Synergy Tech are experts in the Microsoft System Center Space - they have provided flawless implementation and support where others had failed. I would not hesitate to recommend them to anyone."}      
+                                />
+                                <QuoteCard id="q2" companyLogo={SeekaLogo} profile={JasonSwain} name="Jason Swain" title={"General Manager - Information Systems"}
+                                    quote={"Seeka relies on the expertise and integrity that the team at Synergy Tech provides. They are an integral part of key systems projects at Seeka and constantly deliver excellent outcomes."}      
+                                />
+                                <QuoteCard id="q3" companyLogo={TuiLogo} profile={MarkLeslie} name="Mark Leslie" title={"Business Systems and Information Manager"}
+                                    quote={'Synergy Tech actually listen to what our objectives are, they provide expert advice and sound business solutions. Synergy&aposs "go the extra mile" attitude is the reason why we always achieve outstanding results no matter the size of the project. They&aposre a fantastic company to work with.'}      
+                                />
                             </div>
                         </div>
                     </SwiperSlide>
